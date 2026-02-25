@@ -2,14 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide scrollbars but keep scrolling */
-html,
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Theme (pastel pink + cream) */
+:root{
+  --bg: 255 252 250;      /* warm off-white */
+  --card: 255 255 255;
+  --ink: 17 24 39;        /* slate-900-ish */
+  --muted: 71 85 105;     /* slate-600-ish */
+  --line: 226 232 240;    /* slate-200-ish */
+  --cream: 255 246 240;
+  --blush: 255 198 214;   /* pastel pink */
+  --blush2: 255 228 236;  /* lighter blush */
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-}
+html{ scroll-behavior:smooth; }
+body{ background: rgb(var(--bg)); color: rgb(var(--ink)); }
+
+/* Avoid accidental horizontal scroll on mobile */
+*{ max-width:100%; }
