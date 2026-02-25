@@ -2,20 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme (pastel pink + cream) */
-:root{
-  --bg: 255 252 250;      /* warm off-white */
-  --card: 255 255 255;
-  --ink: 17 24 39;        /* slate-900-ish */
-  --muted: 71 85 105;     /* slate-600-ish */
-  --line: 226 232 240;    /* slate-200-ish */
-  --cream: 255 246 240;
-  --blush: 255 198 214;   /* pastel pink */
-  --blush2: 255 228 236;  /* lighter blush */
+/* ── Smooth scroll ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
-html{ scroll-behavior:smooth; }
-body{ background: rgb(var(--bg)); color: rgb(var(--ink)); }
+/* ── Respect reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
-/* Avoid accidental horizontal scroll on mobile */
-*{ max-width:100%; }
+/* ── Base ────────────────────────────────────────────────────────────── */
+body {
+  @apply bg-cream font-sans text-bark antialiased overflow-x-hidden;
+}
+
+/* ── Section reveal utility (JS adds .revealed) ─────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* ── Typography helpers ─────────────────────────────────────────────── */
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+.font-accent  { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* ── Gradient text ──────────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #D4788A 0%, #E8A0AD 50%, #b85a6c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Noise texture overlay (subtle luxury feel) ─────────────────────── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Decorative petal blobs ─────────────────────────────────────────── */
+.blob {
+  border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+}
+
+/* ── Image aspect-ratio placeholder ─────────────────────────────────── */
+.img-placeholder {
+  @apply w-full h-full object-cover;
+}
+
+/* ── Scrollbar (webkit) ─────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: #FDF6F0; }
+::-webkit-scrollbar-thumb  { background: #E8A0AD; border-radius: 9999px; }
+
+/* ── Focus visible ring ─────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #D4788A;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
