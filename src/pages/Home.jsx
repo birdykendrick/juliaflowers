@@ -14,175 +14,205 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
-<section
-  className="relative overflow-hidden"
-  style={{ height: '72vh', minHeight: 500, maxHeight: 700 }}
->
-  <style>{`
+      <section
+        className="relative overflow-hidden flex items-center justify-center"
+        style={{
+          background: 'linear-gradient(150deg, #f9f0ea 0%, #fdf5f0 35%, #f7efe8 60%, #f0ead5 100%)',
+          minHeight: '560px',
+          height: '78vh',
+        }}
+      >
+        <style>{`
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap');
+
     @keyframes heroFadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes heroFadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    .hero-anim {
-      opacity: 0;
-      animation: heroFadeUp 0.75s ease forwards;
+    .hero-anim      { opacity: 0; animation: heroFadeUp 0.8s ease forwards; }
+    .hero-anim-fade { opacity: 0; animation: heroFadeIn 0.8s ease forwards; }
+
+    .hero-flower {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      draggable: false;
+      z-index: 2;
     }
-    .hero-anim-fade {
-      opacity: 0;
-      animation: heroFadeIn 0.75s ease forwards;
+
+    .hero-btn-main {
+      background: linear-gradient(135deg, #a84d67, #bf7088);
+      color: #fff; border: none;
+      padding: clamp(11px,2vw,13px) clamp(24px,4vw,32px);
+      border-radius: 999px;
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(8px,1.8vw,10.5px);
+      font-weight: 300; letter-spacing: .22em; text-transform: uppercase;
+      cursor: pointer; transition: all .3s ease;
+      box-shadow: 0 10px 30px rgba(168,77,103,.2);
     }
-    .hero-glass-btn:hover {
-      background: rgba(255,255,255,0.14) !important;
+    .hero-btn-main:hover { transform: translateY(-2px); filter: brightness(1.07); }
+
+    .hero-btn-ghost {
+      background: rgba(255,255,255,.3);
+      color: #7a4a56; border: 1px solid rgba(168,77,103,.22);
+      padding: clamp(11px,2vw,13px) clamp(24px,4vw,32px);
+      border-radius: 999px;
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(8px,1.8vw,10.5px);
+      font-weight: 300; letter-spacing: .22em; text-transform: uppercase;
+      cursor: pointer; transition: all .3s ease;
+      backdrop-filter: blur(6px);
     }
+    .hero-btn-ghost:hover { background: rgba(168,77,103,.07); transform: translateY(-2px); }
   `}</style>
 
-  <img
-    src="/images/hero-banner.jpg"
-    alt="MysticBloom fresh flowers"
-    className="absolute inset-0 w-full h-full object-cover object-center"
-  />
+        {/* Soft glow center */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(circle at 50% 40%, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.4) 30%, transparent 65%)',
+          zIndex: 0,
+        }} />
 
-  <div
-    className="absolute inset-0 z-[2]"
-    style={{ background: 'rgba(18,6,12,0.40)' }}
-  />
+        {/* Corner glow accents */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background:
+            'radial-gradient(circle at 18% 75%, rgba(226,184,197,0.28), transparent 30%), radial-gradient(circle at 84% 25%, rgba(215,190,170,0.22), transparent 26%)',
+          zIndex: 0,
+        }} />
 
-  <div
-    className="absolute inset-0 z-[3] pointer-events-none"
-    style={{
-      background:
-        'radial-gradient(ellipse at center, transparent 38%, rgba(8,2,6,0.34) 100%)',
-    }}
-  />
+        {/* ── Flower: Top-left orchid ── */}
+<img
+  src="/images/hero-orchid-left.png"
+  alt=""
+  draggable={false}
+  onDragStart={e => e.preventDefault()}
+  className="hero-flower"
+  style={{
+    top: '-15px',
+    left: '10px',          // pushed further off-screen left
+    width: 'clamp(300px, 32vw, 480px)',
+    transform: 'rotate(6deg)',   // more tilt so stem exits left edge
+    transformOrigin: 'top left',
+  }}
+/>
 
-  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
+{/* ── Flower: Bottom-left bouquet ── */}
+<img
+  src="/images/hero-bouquet-left.png"
+  alt=""
+  draggable={false}
+  onDragStart={e => e.preventDefault()}
+  className="hero-flower"
+  style={{
+    bottom: '-100px',        // pushed way down so stem exits bottom
+    left: '100px',
+    width: 'clamp(320px, 34vw, 500px)',
+    transform: 'rotate(8deg)',
+    transformOrigin: 'bottom left',
+  }}
+/>
 
-    {/* Eyebrow — fully centered with equal lines */}
-    <div
-      className="hero-anim"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '12px',
-        marginBottom: '20px',
-        animationDelay: '0.1s',
-        width: '100%',
-      }}
-    >
-      <span
-        style={{
-          display: 'block',
-          width: '32px',
-          flexShrink: 0,
-          height: '1px',
-          background: 'rgba(255, 228, 235, 0.6)',
-        }}
-      />
-      <p
-        style={{
-          color: 'rgba(255,245,248,0.95)',
-          fontSize: '11px',
-          fontWeight: 300,
-          letterSpacing: '0.2em',
-          textShadow: '0 1px 10px rgba(0,0,0,0.14)',
-          textTransform: 'uppercase',
-          margin: 0,
-          whiteSpace: 'nowrap',
-        }}
-      >
-        Fresh flowers, made with care
-      </p>
-      <span
-        style={{
-          display: 'block',
-          width: '32px',
-          flexShrink: 0,
-          height: '1px',
-          background: 'rgba(255, 228, 235, 0.6)',
-        }}
-      />
-    </div>
+{/* ── Flower: Top-right mini bouquet ── */}
+<img
+  src="/images/mini-bouquet-right.png"
+  alt=""
+  draggable={false}
+  onDragStart={e => e.preventDefault()}
+  className="hero-flower"
+  style={{
+    top: '-40px',
+    right: '-80px',          // tucked into top-right corner
+    width: 'clamp(260px, 27vw, 400px)',
+    transform: 'rotate(18deg)',    // steeper tilt leaning into corner
+    transformOrigin: 'top right',
+  }}
+/>
 
-    <h1
-      className="font-serif font-light text-white leading-[1.05] mb-5 hero-anim"
-      style={{
-        fontSize: 'clamp(2.8rem, 7vw, 5.8rem)',
-        fontStyle: 'italic',
-        textShadow: '0 2px 32px rgba(0,0,0,0.22)',
-        animationDelay: '0.25s',
-      }}
-    >
-      Fresh Blooms
-      <br />
-      For <em style={{ color: '#ffc0d0' }}>Every</em> Occasion
-    </h1>
+{/* ── Flower: Bottom-right roses ── */}
+<img
+  src="/images/hero-bloom-right.png"
+  alt=""
+  draggable={false}
+  onDragStart={e => e.preventDefault()}
+  className="hero-flower"
+  style={{
+    bottom: '-140px',        // pushed down so stems exit bottom
+    right: '-80px',
+    width: 'clamp(290px, 31vw, 460px)',
+    transform: 'rotate(-12deg)',
+    transformOrigin: 'bottom right',
+  }}
+/>
+        {/* ── Centered hero content ── */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center px-6 py-10">
+          <div className="w-full max-w-3xl mx-auto text-center flex flex-col items-center justify-center">
 
-    <div
-      className="flex items-center gap-4 mb-5 hero-anim-fade"
-      style={{ animationDelay: '0.4s' }}
-    >
-      <span
-        className="block w-10 h-px"
-        style={{ background: 'rgba(255, 255, 255, 0.6)' }}
-      />
-      <span style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: 12 }}>✦</span>
-      <span
-        className="block w-10 h-px"
-        style={{ background: 'rgba(255, 255, 255, 0.6)' }}
-      />
-    </div>
+            {/* Eyebrow */}
+            <div className="hero-anim-fade" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: '12px', marginBottom: '22px', animationDelay: '0.1s', width: '100%',
+            }}>
+              <span style={{ display: 'block', width: '44px', height: '1px', background: 'rgba(148,80,100,.35)', flexShrink: 0 }} />
+              <p style={{ margin: 0, fontSize: '10px', fontWeight: 300, letterSpacing: '0.24em', textTransform: 'uppercase', color: '#9a6070' }}>
+                Fresh flowers, made with care
+              </p>
+              <span style={{ display: 'block', width: '44px', height: '1px', background: 'rgba(148,80,100,.35)', flexShrink: 0 }} />
+            </div>
 
-    <p
-  className="text-sm leading-relaxed mb-9 max-w-sm font-light hero-anim"
-  style={{ color: 'rgba(255, 255, 255, 0.85)', animationDelay: '0.5s' }}
->
-  Thoughtful blooms.{' '}
-  <span style={{ color: '#fff', fontWeight: 400 }}>
-    Fresh flowers arranged with care
-  </span>{' '}
-  for life's little moments.
-</p>
+            {/* Headline */}
+            <h1 className="hero-anim" style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: 300, fontStyle: 'italic',
+              fontSize: 'clamp(3rem, 7vw, 5.2rem)',
+              lineHeight: 1.03, color: '#4a2a32',
+              margin: '0 0 16px', textAlign: 'center',
+              animationDelay: '0.25s', maxWidth: '900px',
+            }}>
+              Fresh Blooms<br />
+              For <em style={{ color: '#a84d67' }}>Every</em> Occasion
+            </h1>
 
-    {/* CTA buttons — original pill style */}
-    <div
-      className="flex items-center gap-4 flex-wrap justify-center hero-anim"
-      style={{ animationDelay: '0.65s' }}
-    >
-      <button
-        className="inline-flex items-center gap-2 text-[10.5px] tracking-[0.18em] uppercase text-white px-8 py-3.5 rounded-full transition-all duration-300 ease-out hover:-translate-y-[2px] hover:scale-[1.02] hover:brightness-105 active:scale-[0.99]"
-        style={{
-          background: 'linear-gradient(135deg, #b05570 0%, #c06a84 100%)',
-          boxShadow: '0 10px 30px rgba(176,85,112,0.20)',
-        }}
-        onClick={() => navigate('/gallery')}
-      >
-        Shop Bouquets
-      </button>
+            {/* Ornament divider */}
+            <div className="hero-anim-fade" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: '10px', marginBottom: '16px', animationDelay: '0.4s',
+            }}>
+              <span style={{ width: '34px', height: '1px', background: 'rgba(148,80,100,.28)', display: 'block' }} />
+              <span style={{ color: 'rgba(148,80,100,.45)', fontSize: '11px' }}>✦</span>
+              <span style={{ width: '34px', height: '1px', background: 'rgba(148,80,100,.28)', display: 'block' }} />
+            </div>
 
-      <button
-        className="hero-glass-btn inline-flex items-center gap-2 text-[10.5px] tracking-[0.18em] uppercase px-8 py-3.5 rounded-full transition-all duration-300 ease-out hover:-translate-y-[2px] hover:scale-[1.02] active:scale-[0.99]"
-        style={{
-          color: 'rgba(255,255,255,0.92)',
-          border: '1px solid rgba(255,255,255,0.38)',
-          backdropFilter: 'blur(8px)',
-          background: 'rgba(255,255,255,0.08)',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
-        }}
-        onClick={() => navigate('/builder')}
-      >
-        Build Your Bouquet
-      </button>
-    </div>
-  </div>
+            {/* Subtitle */}
+            <p className="hero-anim" style={{
+              fontSize: 'clamp(0.82rem, 1.6vw, 0.96rem)',
+              fontFamily: "'Jost', sans-serif",
+              fontWeight: 300, lineHeight: 1.8, color: '#7a5560',
+              margin: '0 auto 36px', maxWidth: '400px', textAlign: 'center',
+              animationDelay: '0.5s',
+            }}>
+              Thoughtful blooms.{' '}
+              <span style={{ color: '#4a2a32', fontWeight: 400 }}>Fresh flowers arranged with care</span>{' '}
+              for life's little moments.
+            </p>
 
-  
-</section>
+            {/* CTA Buttons */}
+            <div className="hero-anim" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: '12px', flexWrap: 'wrap', animationDelay: '0.65s',
+            }}>
+              <button className="hero-btn-main" onClick={() => navigate('/gallery')}>Shop Bouquets</button>
+              <button className="hero-btn-ghost" onClick={() => navigate('/builder')}>Build Your Bouquet</button>
+            </div>
 
+          </div>
+        </div>
+      </section>
+      
       {/* ── BESTSELLERS ───────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="reveal">
