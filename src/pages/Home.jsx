@@ -140,8 +140,8 @@ export default function Home() {
           draggable={false}
           onDragStart={e => e.preventDefault()}
           className="hero-flower
-    w-[240px] sm:w-[290px] md:w-[300px] lg:w-[400px]
-    right-[-110px] sm:right-[-130px] md:right-[-120px] lg:right-[-168px]
+    w-[240px] sm:w-[290px] md:w-[300px] lg:w-[415px]
+    right-[-110px] sm:right-[-130px] md:right-[-120px] lg:right-[-70px]
     bottom-[50px] sm:bottom-[50px] md:bottom-[70px] lg:bottom-[110px]"
           style={{
             transform: 'rotate(-38deg)',
@@ -219,7 +219,7 @@ export default function Home() {
         <div className="reveal">
           <SectionHeader
             eyebrow="Our Favourites"
-            title="Bestselling <em class='text-deep-rose italic font-serif'>Bouquets</em>"
+            title="Our <em class='text-deep-rose italic font-serif'>Best Sellers</em>"
             subtitle="Each bouquet is lovingly assembled by hand using the freshest seasonal blooms."
           />
         </div>
