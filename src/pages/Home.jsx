@@ -86,68 +86,69 @@ export default function Home() {
         }} />
 
         {/* ── Flower: Top-left orchid ── */}
-<img
-  src="/images/hero-orchid-left.png"
-  alt=""
-  draggable={false}
-  onDragStart={e => e.preventDefault()}
-  className="hero-flower"
-  style={{
-    top: '-15px',
-    left: '10px',          // pushed further off-screen left
-    width: 'clamp(300px, 32vw, 480px)',
-    transform: 'rotate(6deg)',   // more tilt so stem exits left edge
-    transformOrigin: 'top left',
-  }}
-/>
+        <img
+          src="/images/hero-orchid-left.png"
+          alt=""
+          draggable={false}
+          onDragStart={e => e.preventDefault()}
+          className="hero-flower
+    w-[170px] sm:w-[280px] md:w-[250px] lg:w-[300px]
+    top-[50px] sm:top-[-10px] md:top-[5px] lg:top-[-10px]
+    left-[25px] sm:left-[0px] md:left-[30px] lg:left-[48px]"
+          style={{
+            transform: 'rotate(13deg)',
+            transformOrigin: 'top left',
+          }}
+        />
 
-{/* ── Flower: Bottom-left bouquet ── */}
-<img
-  src="/images/hero-bouquet-left.png"
-  alt=""
-  draggable={false}
-  onDragStart={e => e.preventDefault()}
-  className="hero-flower"
-  style={{
-    bottom: '-100px',        // pushed way down so stem exits bottom
-    left: '100px',
-    width: 'clamp(320px, 34vw, 500px)',
-    transform: 'rotate(8deg)',
-    transformOrigin: 'bottom left',
-  }}
-/>
+        {/* ── Flower: Bottom-left bouquet ── */}
+        <img
+          src="/images/hero-bouquet-left.png"
+          alt=""
+          draggable={false}
+          onDragStart={e => e.preventDefault()}
+          className="hero-flower
+    w-[180px] sm:w-[210px] md:w-[260px] lg:w-[330px]
+    left-[-75px] sm:left-[-90px] md:left-[-100px] lg:left-[-30px]
+    bottom-[-30px] sm:bottom-[-20px] md:bottom-[-35px] lg:bottom-[-40px]"
+          style={{
+            transform: 'rotate(25deg)',
+            transformOrigin: 'bottom left',
+          }}
+        />
 
-{/* ── Flower: Top-right mini bouquet ── */}
-<img
-  src="/images/mini-bouquet-right.png"
-  alt=""
-  draggable={false}
-  onDragStart={e => e.preventDefault()}
-  className="hero-flower"
-  style={{
-    top: '-40px',
-    right: '-80px',          // tucked into top-right corner
-    width: 'clamp(260px, 27vw, 400px)',
-    transform: 'rotate(18deg)',    // steeper tilt leaning into corner
-    transformOrigin: 'top right',
-  }}
-/>
+        {/* ── Flower: Top-right mini bouquet ── */}
+        <img
+          src="/images/mini-bouquet-right.png"
+          alt=""
+          draggable={false}
+          onDragStart={e => e.preventDefault()}
+          className="hero-flower
+    w-[180px] sm:w-[205px] md:w-[250px] lg:w-[310px]
+    top-[128px] sm:top-[-300px] md:top-[115px] lg:top-[128px]
+    right-[195px] sm:right-[50px] md:right-[280px] lg:right-[335px]"
+          style={{
+            transform: 'scaleX(-1) rotate(40deg)',
+            transformOrigin: 'top right',
+          }}
+        />
 
-{/* ── Flower: Bottom-right roses ── */}
-<img
-  src="/images/hero-bloom-right.png"
-  alt=""
-  draggable={false}
-  onDragStart={e => e.preventDefault()}
-  className="hero-flower"
-  style={{
-    bottom: '-140px',        // pushed down so stems exit bottom
-    right: '-80px',
-    width: 'clamp(290px, 31vw, 460px)',
-    transform: 'rotate(-12deg)',
-    transformOrigin: 'bottom right',
-  }}
-/>
+        {/* ── Flower: Bottom-right roses ── */}
+        <img
+          src="/images/hero-bloom-right.png"
+          alt=""
+          draggable={false}
+          onDragStart={e => e.preventDefault()}
+          className="hero-flower
+    w-[240px] sm:w-[290px] md:w-[300px] lg:w-[400px]
+    right-[-110px] sm:right-[-130px] md:right-[-120px] lg:right-[-168px]
+    bottom-[50px] sm:bottom-[50px] md:bottom-[70px] lg:bottom-[110px]"
+          style={{
+            transform: 'rotate(-38deg)',
+            transformOrigin: 'bottom right',
+          }}
+        />
+
         {/* ── Centered hero content ── */}
         <div className="absolute inset-0 z-10 flex items-center justify-center px-6 py-10">
           <div className="w-full max-w-3xl mx-auto text-center flex flex-col items-center justify-center">
@@ -212,7 +213,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* ── BESTSELLERS ───────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="reveal">
