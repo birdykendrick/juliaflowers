@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { LINKS, BUSINESS, TESTIMONIALS } from '../data/mockData'
+import { LINKS, BUSINESS } from '../data/mockData'
 import SectionHeader   from '../components/SectionHeader'
-import TestimonialCard from '../components/TestimonialCard'
 import Footer          from '../components/Footer'
 import useScrollReveal from '../hooks/useScrollReveal'
 
@@ -15,8 +14,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // ✏️  Wire up a real form backend here (e.g. Formspree, EmailJS, Netlify Forms).
-    // For now it just shows a success state.
     setSubmitted(true)
   }
 
@@ -34,7 +31,7 @@ export default function Contact() {
       </section>
 
       {/* Contact layout */}
-      <section className="max-w-5xl mx-auto px-6 pb-20">
+      <section className="max-w-5xl mx-auto px-6 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
           {/* ── Form ─────────────────────────────────────── */}
@@ -59,9 +56,9 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 {[
-                  { name: 'name',    label: 'Your Name',       type: 'text',  placeholder: 'e.g. Maria Santos'    },
-                  { name: 'email',   label: 'Email Address',   type: 'email', placeholder: 'your@email.com'        },
-                  { name: 'phone',   label: 'Phone / WhatsApp',type: 'tel',   placeholder: '+63 912 345 6789'      },
+                  { name: 'name',  label: 'Your Name',        type: 'text',  placeholder: 'e.g. Maria Santos'  },
+                  { name: 'email', label: 'Email Address',    type: 'email', placeholder: 'your@email.com'      },
+                  { name: 'phone', label: 'Phone / WhatsApp', type: 'tel',   placeholder: '+63 912 345 6789'    },
                 ].map(({ name, label, type, placeholder }) => (
                   <div key={name}>
                     <label className="block text-[0.7rem] uppercase tracking-[0.1em] text-text-mid mb-1.5 opacity-80">
@@ -95,7 +92,6 @@ export default function Contact() {
                 <button type="submit" className="btn-primary w-full rounded-2xl">
                   Send Message
                 </button>
-                {/* ✏️  Update LINKS.messenger in mockData.js */}
                 <a
                   href={LINKS.messenger}
                   target="_blank"
@@ -110,7 +106,6 @@ export default function Contact() {
 
           {/* ── Contact Info ─────────────────────────────── */}
           <div className="space-y-4 reveal reveal-delay-2">
-            {/* Info card */}
             <div
               className="rounded-3xl p-6"
               style={{ background: 'linear-gradient(135deg, rgba(232,197,210,0.55), rgba(240,221,208,0.55))' }}
@@ -122,29 +117,21 @@ export default function Contact() {
                 Premium Floral Boutique
               </p>
 
-              {/* ✏️  Update contact details in src/data/mockData.js → LINKS & BUSINESS */}
               {[
-                { icon: '💬', label: 'Facebook Messenger', value: '@MysticBloomPH',   sub: 'Fastest response — usually within 1 hr', href: LINKS.messenger },
-                { icon: '📸', label: 'Instagram',          value: '@mysticbloom.ph',  sub: null,                                      href: LINKS.instagram },
-                { icon: '📱', label: 'WhatsApp',           value: LINKS.phone,        sub: null,                                      href: LINKS.whatsapp  },
-                { icon: '🕐', label: 'Operating Hours',    value: BUSINESS.hours,     sub: BUSINESS.hoursSunday,                      href: null            },
+                { icon: '💬', label: 'Facebook Messenger', value: '@MysticBloomPH',  sub: 'Fastest response — usually within 1 hr', href: LINKS.messenger },
+                { icon: '📸', label: 'Instagram',          value: '@mysticbloom.ph', sub: null,                                      href: LINKS.instagram },
+                { icon: '📱', label: 'WhatsApp',           value: LINKS.phone,       sub: null,                                      href: LINKS.whatsapp  },
+                { icon: '🕐', label: 'Operating Hours',    value: BUSINESS.hours,    sub: BUSINESS.hoursSunday,                      href: null            },
               ].map(({ icon, label, value, sub, href }) => (
-                <div
-                  key={label}
-                  className="flex items-start gap-3 py-3 border-b border-rose/20 last:border-0"
-                >
+                <div key={label} className="flex items-start gap-3 py-3 border-b border-rose/20 last:border-0">
                   <span className="text-xl mt-0.5">{icon}</span>
                   <div>
                     <p className="text-[0.68rem] uppercase tracking-[0.1em] text-text-light mb-0.5 opacity-75">
                       {label}
                     </p>
                     {href ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-text-dark hover:text-deep-rose transition-colors"
-                      >
+                      <a href={href} target="_blank" rel="noopener noreferrer"
+                        className="text-sm text-text-dark hover:text-deep-rose transition-colors">
                         {value}
                       </a>
                     ) : (
@@ -163,29 +150,6 @@ export default function Contact() {
               </p>
               <p className="text-xs text-text-light opacity-70">— The {BUSINESS.name} Team</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews section */}
-      <section
-        className="py-20"
-        style={{ background: 'linear-gradient(160deg, #e8d0d8 0%, #edddd5 50%, #e2d8d0 100%)' }}
-      >
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="reveal">
-            <SectionHeader
-              eyebrow="Kind Words"
-              title="Reviews from Our <em class='text-deep-rose italic'>Customers</em>"
-              centered
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {TESTIMONIALS.slice(3, 6).map((t, i) => (
-              <div key={i} className={`reveal reveal-delay-${i + 1}`}>
-                <TestimonialCard testimonial={t} />
-              </div>
-            ))}
           </div>
         </div>
       </section>

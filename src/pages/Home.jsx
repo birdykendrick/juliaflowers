@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { BOUQUETS, TESTIMONIALS } from '../data/mockData'
+import { BOUQUETS } from '../data/mockData'
 import BouquetCard from '../components/BouquetCard'
-import TestimonialCard from '../components/TestimonialCard'
 import SectionHeader from '../components/SectionHeader'
 import HowItWorks from '../components/HowItWorks'
 import Footer from '../components/Footer'
@@ -159,7 +158,7 @@ export default function Home() {
               gap: '12px', marginBottom: '22px', animationDelay: '0.1s', width: '100%',
             }}>
               <span style={{ display: 'block', width: '44px', height: '1px', background: 'rgba(148,80,100,.35)', flexShrink: 0 }} />
-              <p style={{ margin: 0, fontSize: '10px', fontWeight: 300, letterSpacing: '0.24em', textTransform: 'uppercase', color: '#9a6070' }}>
+              <p style={{ margin: 0, fontSize: '10p🌸x', fontWeight: 300, letterSpacing: '0.24em', textTransform: 'uppercase', color: '#9a6070' }}>
                 Fresh flowers, made with care
               </p>
               <span style={{ display: 'block', width: '44px', height: '1px', background: 'rgba(148,80,100,.35)', flexShrink: 0 }} />
@@ -284,29 +283,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ──────────────────────────────────────── */}
-      <section
-        className="py-24"
-        style={{ background: 'linear-gradient(160deg, #e8d0d8 0%, #edddd5 50%, #e2d8d0 100%)' }}
-      >
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="reveal">
-            <SectionHeader
-              eyebrow="Kind Words"
-              title="What Our Customers <em class='text-deep-rose italic'>Say</em>"
-              centered
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {TESTIMONIALS.slice(0, 3).map((t, i) => (
-              <div key={i} className={`reveal reveal-delay-${i + 1}`}>
-                <TestimonialCard testimonial={t} />
-              </div>
-            ))}
           </div>
         </div>
       </section>

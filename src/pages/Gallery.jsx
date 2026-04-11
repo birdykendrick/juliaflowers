@@ -99,7 +99,7 @@ export default function Gallery() {
           className="rounded-3xl p-10 text-center reveal"
           style={{ background: 'linear-gradient(135deg, rgba(232,197,210,0.5), rgba(240,221,208,0.5))' }}
         >
-          <p className="eyebrow justify-center mb-3">Can't find what you're after?</p>
+          <p className="text-[0.7rem] tracking-[0.22em] uppercase text-deep-rose opacity-85 text-center mb-3">Can't find what you're after?</p>
           <h2 className="font-serif text-3xl md:text-4xl font-medium text-text-dark mb-4">
             Build Your Own <em className="text-deep-rose italic">Dream Bouquet</em>
           </h2>

@@ -7,6 +7,7 @@ import Gallery from './pages/Gallery'
 import Builder from './pages/Builder'
 import Delivery from './pages/Delivery'
 import Contact from './pages/Contact'
+import ProductPage from './pages/ProductPage'
 
 // Scroll to top on every route change
 function ScrollToTop() {
@@ -22,11 +23,12 @@ export default function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/"          element={<Home />} />
-          <Route path="/gallery"   element={<Gallery />} />
-          <Route path="/builder"   element={<Builder />} />
-          <Route path="/delivery"  element={<Delivery />} />
-          <Route path="/contact"   element={<Contact />} />
+          <Route path="/"              element={<Home />} />
+          <Route path="/gallery"       element={<Gallery />} />
+          <Route path="/bouquet/:id"   element={<ProductPage />} />
+          <Route path="/builder"       element={<Builder />} />
+          <Route path="/delivery"      element={<Delivery />} />
+          <Route path="/contact"       element={<Contact />} />
         </Routes>
       </main>
     </>
