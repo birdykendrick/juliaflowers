@@ -195,3 +195,38 @@ export const DELIVERY_INFO = [
   { icon: '💳', title: 'Payment Methods',    body: 'We accept GCash, BPI bank transfer, and cash on delivery for select areas. Full payment required before dispatch.' },
   { icon: '🗺️', title: 'Delivery Fees',      body: 'Starting from ₱80 within Metro Manila. Exact fee will be confirmed when you send your order inquiry.' },
 ]
+
+// ─── PRODUCT PAGE: FILLERS ───────────────────────────────────
+export const FILLERS = [
+  { id: 'babysbreath',  name: "Baby's Breath",           price: 40 },
+  { id: 'waxflower',    name: 'Waxflower',                price: 45 },
+  { id: 'statice',      name: 'Statice',                  price: 40 },
+  { id: 'limonium',     name: 'Limonium',                 price: 45 },
+  { id: 'solidago',     name: 'Solidago',                 price: 40 },
+  { id: 'queenanne',    name: "Queen Anne's Lace",        price: 50 },
+  { id: 'lavender',     name: 'Lavender',                 price: 55 },
+  { id: 'aster',        name: 'Aster',                    price: 40 },
+  { id: 'stock',        name: 'Stock',                    price: 50 },
+  { id: 'bupleurum',    name: 'Bupleurum',                price: 45 },
+  { id: 'eucalyptus',   name: 'Silver Dollar Eucalyptus', price: 55 },
+]
+
+// ─── PRODUCT PAGE: WRAPPER COLOURS ──────────────────────────
+export const WRAPPER_COLOURS = [
+  { id: 'white',      name: 'White',       hex: '#ffffff', border: '#e0d0d8' },
+  { id: 'cream',      name: 'Cream',       hex: '#f5f0e0', border: '#d8cdb0' },
+  { id: 'kraft',      name: 'Kraft Brown', hex: '#b5895a', border: '#9a7040' },
+  { id: 'soft-pink',  name: 'Soft Pink',   hex: '#f5c4d0', border: '#d9a0b4' },
+  { id: 'blush',      name: 'Blush',       hex: '#e8b4b8', border: '#c89098' },
+  { id: 'red',        name: 'Red',         hex: '#c0392b', border: '#a02020' },
+  { id: 'lavender',   name: 'Lavender',    hex: '#c4b0d8', border: '#a090c0' },
+  { id: 'sage',       name: 'Sage Green',  hex: '#9db89a', border: '#7a9878' },
+  { id: 'baby-blue',  name: 'Baby Blue',   hex: '#b0cce0', border: '#88aac8' },
+  { id: 'black',      name: 'Black',       hex: '#2a2a2a', border: '#111111' },
+]
+
+// ─── PRODUCT PAGE: ADD-ONS ───────────────────────────────────
+export const PRODUCT_ADDONS = [
+  { id: 'letter',     name: 'Personalised Letter', price: 50,  icon: 'letter' },
+  { id: 'chocolates', name: 'Chocolates',           price: 250, icon: 'choc'   },
+]
