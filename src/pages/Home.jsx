@@ -10,20 +10,16 @@ export default function Home() {
   const navigate = useNavigate()
   useScrollReveal([])
 
-  const STATS = [
-    { num: '500+', label: 'Happy Customers', icon: '🌸' },
-    { num: '100%', label: 'Handcrafted',     icon: '🤍' },
-    { num: 'Same', label: 'Day Delivery',    icon: '🚚' },
-    { num: '3yr+', label: 'Experience',      icon: '✨' },
-  ]
-
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden flex items-center justify-center"
         style={{
-          background: 'linear-gradient(150deg, #f9f0ea 0%, #fdf5f0 35%, #f7efe8 60%, #f0ead5 100%)',
+          backgroundImage: 'url(/images/mainhero.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center bottom',
+          backgroundRepeat: 'no-repeat',
           minHeight: '560px',
           height: '78vh',
         }}
@@ -64,32 +60,32 @@ export default function Home() {
           .hero-btn-main:hover { transform: translateY(-2px); filter: brightness(1.07); }
 
           .hero-btn-ghost {
-            background: rgba(255,255,255,.3);
-            color: #7a4a56; border: 1px solid rgba(168,77,103,.22);
+            background: rgba(255,255,255,.55);
+            color: #4a1a2a; border: 1.5px solid rgba(168,77,103,.5);
             padding: clamp(11px,2vw,13px) clamp(24px,4vw,32px);
             border-radius: 999px;
             font-family: 'Jost', sans-serif;
             font-size: clamp(9px,1.8vw,10.5px);
-            font-weight: 300; letter-spacing: .22em; text-transform: uppercase;
+            font-weight: 400; letter-spacing: .22em; text-transform: uppercase;
             cursor: pointer; transition: all .3s ease;
-            backdrop-filter: blur(6px);
+            backdrop-filter: blur(10px);
           }
-          .hero-btn-ghost:hover { background: rgba(168,77,103,.07); transform: translateY(-2px); }
+          .hero-btn-ghost:hover { background: rgba(255,255,255,.75); transform: translateY(-2px); }
 
 
         `}</style>
 
         {/* Glows */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(circle at 50% 40%, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.4) 30%, transparent 65%)',
+          background: 'radial-gradient(ellipse 60% 70% at 50% 42%, rgba(255,248,244,0.75) 0%, rgba(255,244,240,0.5) 35%, rgba(255,240,235,0.2) 60%, transparent 75%)',
           zIndex: 0,
         }} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(circle at 18% 75%, rgba(226,184,197,0.28), transparent 30%), radial-gradient(circle at 84% 25%, rgba(215,190,170,0.22), transparent 26%)',
+          background: 'radial-gradient(circle at 18% 75%, rgba(226,184,197,0.12), transparent 30%), radial-gradient(circle at 84% 25%, rgba(215,190,170,0.1), transparent 26%)',
           zIndex: 0,
         }} />
 
-        {/* Flowers */}
+        {/* Flowers — commented out, background photo handles decoration
         <img
           src="/images/hero-orchid-left.png"
           alt=""
@@ -134,6 +130,7 @@ export default function Home() {
     bottom-[50px] sm:bottom-[50px] md:bottom-[70px] lg:bottom-[110px]"
           style={{ transform: 'rotate(-38deg)', transformOrigin: 'bottom right' }}
         />
+        */}
 
         {/* Hero content */}
         <div className="absolute inset-0 z-10 flex items-center justify-center px-6 py-10">
@@ -152,14 +149,15 @@ export default function Home() {
 
             <h1 className="hero-anim" style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontWeight: 300, fontStyle: 'italic',
+              fontWeight: 400, fontStyle: 'italic',
               fontSize: 'clamp(3rem, 7vw, 5.2rem)',
-              lineHeight: 1.03, color: '#4a2a32',
+              lineHeight: 1.03, color: '#2e1218',
               margin: '0 0 16px', textAlign: 'center',
               animationDelay: '0.25s', maxWidth: '900px',
+              textShadow: '0 1px 12px rgba(255,245,240,0.9), 0 2px 24px rgba(255,240,235,0.7)',
             }}>
               Fresh Blooms<br />
-              For <em style={{ color: '#a84d67' }}>Every</em> Occasion
+              For <em style={{ color: '#8e3055' }}>Every</em> Occasion
             </h1>
 
             <div className="hero-anim-fade" style={{
@@ -174,12 +172,13 @@ export default function Home() {
             <p className="hero-anim" style={{
               fontSize: 'clamp(0.82rem, 1.6vw, 0.96rem)',
               fontFamily: "'Jost', sans-serif",
-              fontWeight: 300, lineHeight: 1.8, color: '#7a5560',
+              fontWeight: 400, lineHeight: 1.8, color: '#3e1a24',
               margin: '0 auto 36px', maxWidth: '400px', textAlign: 'center',
               animationDelay: '0.5s',
+              textShadow: '0 1px 8px rgba(255,245,240,0.95), 0 2px 16px rgba(255,240,235,0.8)',
             }}>
               Thoughtful blooms.{' '}
-              <span style={{ color: '#4a2a32', fontWeight: 400 }}>Fresh flowers arranged with care</span>{' '}
+              <span style={{ color: '#2e1218', fontWeight: 400 }}>Fresh flowers arranged with care</span>{' '}
               for life's little moments.
             </p>
 
@@ -200,15 +199,27 @@ export default function Home() {
         style={{ background: 'linear-gradient(90deg, #f2e4dc 0%, #faf0ea 50%, #f2e4dc 100%)' }}
         className="border-y border-rose-200/40"
       >
-        <div className="max-w-4xl mx-auto px-6 py-5 grid grid-cols-4 gap-2">
-          {STATS.map(({ num, label, icon }, i) => (
-            <div
-              key={label}
-              className={`flex flex-col items-center text-center reveal reveal-delay-${i + 1}`}
-            >
-              <span className="text-xl mb-1">{icon}</span>
-              <span className="font-serif text-lg font-semibold text-deep-rose leading-none">{num}</span>
-              <span className="text-[0.6rem] uppercase tracking-[0.08em] text-text-light mt-0.5 opacity-75 leading-tight">{label}</span>
+        <div className="max-w-3xl mx-auto px-6 py-3 grid grid-cols-3 gap-4">
+          {[
+            {
+              num: '100+', label: 'Happy Customers',
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+            },
+            {
+              num: '100%', label: 'Handcrafted',
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+            },
+            {
+              num: 'Same', label: 'Day Delivery',
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>,
+            },
+          ].map(({ num, label, icon }, i) => (
+            <div key={label} className={`flex items-center gap-2.5 justify-center reveal reveal-delay-${i + 1}`}>
+              <div className="flex-shrink-0">{icon}</div>
+              <div className="text-left">
+                <span className="font-serif text-base font-semibold text-deep-rose leading-none block">{num}</span>
+                <span className="text-[0.65rem] uppercase tracking-[0.08em] text-text-light opacity-70 leading-tight block">{label}</span>
+              </div>
             </div>
           ))}
         </div>
