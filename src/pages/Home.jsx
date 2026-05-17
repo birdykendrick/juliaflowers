@@ -71,13 +71,11 @@ export default function Home() {
             backdrop-filter: blur(10px);
           }
           .hero-btn-ghost:hover { background: rgba(255,255,255,.75); transform: translateY(-2px); }
-
-
         `}</style>
 
         {/* Glows */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 60% 70% at 50% 42%, rgba(255,248,244,0.75) 0%, rgba(255,244,240,0.5) 35%, rgba(255,240,235,0.2) 60%, transparent 75%)',
+          background: 'radial-gradient(ellipse 60% 70% at 50% 42%, rgba(255,248,244,0.75) 0%, rgba(255,244,240,0.5) 25%, rgba(255,240,235,0.2) 60%, transparent 75%)',
           zIndex: 0,
         }} />
         <div className="absolute inset-0 pointer-events-none" style={{
@@ -85,28 +83,26 @@ export default function Home() {
           zIndex: 0,
         }} />
 
-        {/* Flowers — commented out, background photo handles decoration
+        {/* Edge fades */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'linear-gradient(to right, rgba(247,237,232,0.72) 0%, transparent 10%, transparent 85%, rgba(247,237,232,0.72) 100%)',
+          zIndex: 3,
+        }} />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'linear-gradient(to bottom, rgba(247,237,232,0.5) 0%, transparent 22%, transparent 68%, rgba(247,237,232,0.65) 100%)',
+          zIndex: 3,
+        }} />
+
         <img
-          src="/images/hero-orchid-left.png"
+          src="/images/smallbouquet1.png"
           alt=""
           draggable={false}
           onDragStart={e => e.preventDefault()}
           className="hero-flower
-    w-[170px] sm:w-[280px] md:w-[250px] lg:w-[300px]
-    top-[50px] sm:top-[-10px] md:top-[5px] lg:top-[-10px]
-    left-[25px] sm:left-[0px] md:left-[30px] lg:left-[48px]"
-          style={{ transform: 'rotate(13deg)', transformOrigin: 'top left' }}
-        />
-        <img
-          src="/images/hero-bouquet-left.png"
-          alt=""
-          draggable={false}
-          onDragStart={e => e.preventDefault()}
-          className="hero-flower
-    w-[180px] sm:w-[210px] md:w-[260px] lg:w-[330px]
-    left-[-75px] sm:left-[-90px] md:left-[-100px] lg:left-[-30px]
-    bottom-[-30px] sm:bottom-[-20px] md:bottom-[-35px] lg:bottom-[-40px]"
-          style={{ transform: 'rotate(25deg)', transformOrigin: 'bottom left' }}
+    w-[210px] sm:w-[280px] md:w-[250px] lg:w-[290px]
+    top-[20px] sm:top-[-10px] md:top-[5px] lg:top-[-10px]
+    left-[55px] sm:left-[0px] md:left-[30px] lg:left-[80px]"
+          style={{ transform: 'rotate(38deg)', transformOrigin: 'top left', opacity: 0.72 }}
         />
         <img
           src="/images/mini-bouquet-right.png"
@@ -117,20 +113,8 @@ export default function Home() {
     w-[180px] sm:w-[205px] md:w-[250px] lg:w-[310px]
     top-[128px] sm:top-[-300px] md:top-[115px] lg:top-[128px]
     right-[195px] sm:right-[50px] md:right-[280px] lg:right-[335px]"
-          style={{ transform: 'scaleX(-1) rotate(40deg)', transformOrigin: 'top right' }}
+          style={{ transform: 'scaleX(-1) rotate(40deg)', transformOrigin: 'top right', opacity: 0.72 }}
         />
-        <img
-          src="/images/hero-bloom-right.png"
-          alt=""
-          draggable={false}
-          onDragStart={e => e.preventDefault()}
-          className="hero-flower
-    w-[240px] sm:w-[290px] md:w-[300px] lg:w-[415px]
-    right-[-110px] sm:right-[-130px] md:right-[-120px] lg:right-[-70px]
-    bottom-[50px] sm:bottom-[50px] md:bottom-[70px] lg:bottom-[110px]"
-          style={{ transform: 'rotate(-38deg)', transformOrigin: 'bottom right' }}
-        />
-        */}
 
         {/* Hero content */}
         <div className="absolute inset-0 z-10 flex items-center justify-center px-6 py-10">
@@ -203,15 +187,15 @@ export default function Home() {
           {[
             {
               num: '100+', label: 'Happy Customers',
-              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>,
             },
             {
               num: '100%', label: 'Handcrafted',
-              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>,
             },
             {
               num: 'Same', label: 'Day Delivery',
-              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>,
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b85c7a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="1" /><path d="M16 8h4l3 5v3h-7V8z" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>,
             },
           ].map(({ num, label, icon }, i) => (
             <div key={label} className={`flex items-center gap-2.5 justify-center reveal reveal-delay-${i + 1}`}>
@@ -237,7 +221,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Mobile + Desktop: 2 cols on mobile, 4 on desktop */}
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {BOUQUETS.slice(0, 4).map((b, i) => (
             <div key={b.id} className={`reveal reveal-delay-${i + 1}`}>
@@ -273,94 +256,93 @@ export default function Home() {
           .drift-3 { animation: petalDrift3 5.5s ease-in-out infinite 2s; }
 
           .cta-card {
-            background: #2e1a24;
             border-radius: 28px;
             position: relative;
             overflow: hidden;
           }
-          .cta-shine {
+          .cta-bg-image {
             position: absolute;
             inset: 0;
-            background:
-              radial-gradient(ellipse at 20% 50%, rgba(184,92,122,0.22) 0%, transparent 55%),
-              radial-gradient(ellipse at 80% 20%, rgba(217,160,180,0.14) 0%, transparent 45%),
-              radial-gradient(ellipse at 60% 90%, rgba(240,200,170,0.1) 0%, transparent 40%);
-            pointer-events: none;
+            background-image: url('/images/gallery/smallbouquet2.png');
+            background-size: cover;
+            background-position: right center;
+            z-index: 0;
           }
+          .cta-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      rgba(30,12,22,0.95) 0%,
+      rgba(30,12,22,0.70) 20%,
+      rgba(30,12,22,0.20) 50%,
+      rgba(30,12,22,0.70) 80%,
+      rgba(30,12,22,0.95) 100%
+    );
+  z-index: 1;
+}
         `}</style>
 
-        <div className="cta-card max-w-5xl mx-auto p-8 md:p-12 reveal">
-          <div className="cta-shine" />
+        <div className="cta-card max-w-5xl mx-auto reveal">
+          <div className="cta-bg-image" />
+          <div className="cta-overlay" />
 
-          {/* Floating petal SVGs */}
-          <svg className="drift-1 absolute top-6 right-16 w-8 h-8 opacity-40 pointer-events-none" viewBox="0 0 40 40">
-            <ellipse cx="20" cy="20" rx="7" ry="16" fill="none" stroke="#d9a0b4" strokeWidth="1.2" transform="rotate(25 20 20)" />
-          </svg>
-          <svg className="drift-2 absolute top-12 right-8 w-5 h-5 opacity-30 pointer-events-none" viewBox="0 0 40 40">
-            <ellipse cx="20" cy="20" rx="10" ry="6" fill="none" stroke="#e8c5d2" strokeWidth="1.2" transform="rotate(-15 20 20)" />
-          </svg>
-          <svg className="drift-3 absolute bottom-8 right-24 w-6 h-6 opacity-25 pointer-events-none" viewBox="0 0 40 40">
-            <path d="M20 4 C26 10 26 28 20 34 C14 28 14 10 20 4Z" fill="none" stroke="#d9a0b4" strokeWidth="1.2" />
-          </svg>
-          <svg className="drift-1 absolute bottom-6 left-10 w-7 h-7 opacity-20 pointer-events-none" viewBox="0 0 40 40">
-            <ellipse cx="20" cy="20" rx="8" ry="14" fill="none" stroke="#c8a0b0" strokeWidth="1" transform="rotate(40 20 20)" />
-          </svg>
+          <div className="relative p-8 md:p-12" style={{ zIndex: 3 }}>
+            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
 
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
+              {/* Left: text */}
+              <div className="flex-1">
+                <h2 style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+                  fontWeight: 300, lineHeight: 1.1,
+                  color: '#fdf5f0', margin: '0 0 12px',
+                }}>
+                  Can't find the one?<br />
+                  <em style={{ color: '#d9a0b4', fontStyle: 'italic' }}>Design your own.</em>
+                </h2>
 
-            {/* Left: text */}
-            <div className="flex-1">
-
-              <h2 style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-                fontWeight: 300, lineHeight: 1.1,
-                color: '#fdf5f0', margin: '0 0 12px',
-              }}>
-                Can't find the one?<br />
-                <em style={{ color: '#d9a0b4', fontStyle: 'italic' }}>Design your own.</em>
-              </h2>
-
-              <p style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: '0.87rem', fontWeight: 300,
-                color: 'rgba(253,245,240,0.6)', lineHeight: 1.75,
-                maxWidth: '360px',
-              }}>
-                Pick your blooms, choose your wrap, add a sweet note.
-                We'll put it together with love and bring it right to your door.
-              </p>
-            </div>
-
-            {/* Right: CTA */}
-            <div className="flex-shrink-0 flex flex-col items-start md:items-center gap-3">
-              <button
-                onClick={() => navigate('/builder')}
-                style={{
-                  background: 'linear-gradient(135deg, #b85c7a, #c87090)',
-                  color: '#fff', border: 'none',
-                  padding: '14px 32px', borderRadius: '999px',
+                <p style={{
                   fontFamily: "'Jost', sans-serif",
-                  fontSize: '0.8rem', letterSpacing: '0.15em',
-                  textTransform: 'uppercase', fontWeight: 400,
-                  cursor: 'pointer', transition: 'all 0.25s',
-                  boxShadow: '0 8px 28px rgba(184,92,122,0.4)',
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-                onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                Start Building
-              </button>
-              <p style={{
-                fontSize: '0.68rem', color: 'rgba(217,160,180,0.6)',
-                fontFamily: "'Jost', sans-serif", letterSpacing: '0.06em',
-                textAlign: 'center',
-              }}>
-                Free to design • No commitment
-              </p>
-            </div>
+                  fontSize: '0.87rem', fontWeight: 300,
+                  color: 'rgba(253,245,240,0.6)', lineHeight: 1.75,
+                  maxWidth: '360px',
+                }}>
+                  Pick your blooms, choose your wrap, add a sweet note.
+                  We'll put it together with love and bring it right to your door.
+                </p>
+              </div>
 
+              {/* Right: CTA */}
+              <div className="flex-shrink-0 flex flex-col items-start md:items-center gap-3">
+                <button
+                  onClick={() => navigate('/builder')}
+                  style={{
+                    background: 'linear-gradient(135deg, #b85c7a, #c87090)',
+                    color: '#fff', border: 'none',
+                    padding: '15px 36px', borderRadius: '999px',
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: '0.85rem', letterSpacing: '0.15em',
+                    textTransform: 'uppercase', fontWeight: 400,
+                    cursor: 'pointer', transition: 'all 0.25s',
+                    boxShadow: '0 10px 36px rgba(184,92,122,0.6)',
+                    whiteSpace: 'nowrap',
+                  }}
+                  onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'}
+                  onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
+                >
+                  Start Building
+                </button>
+                <p style={{
+                  fontSize: '0.82rem', color: 'rgba(253,220,235,0.95)',
+                  fontFamily: "'Jost', sans-serif", letterSpacing: '0.06em',
+                  textAlign: 'center', fontWeight: 300, margin: 0,
+                }}>
+                  Free to design • No commitment
+                </p>
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
